@@ -1,0 +1,8 @@
+before:
+  - description: Initialize git submodules
+    commands:
+      - git submodule init
+      - git submodule update
+  - description: Enable devtoolset-8 gcc version
+    commands:
+      - echo "source /opt/rh/devtoolset-8/enable" >> $BUILD_COMMAND_RC_FILE
