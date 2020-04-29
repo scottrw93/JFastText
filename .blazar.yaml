@@ -3,3 +3,16 @@ buildpack:
   organization: HubSpotProtected
   repository: Blazar-Buildpack-Java
   branch: v2-prebuilt
+
+user: root
+
+before:
+  - description: Initialize git submodules
+    commands:
+      - git submodule init
+      - git submodule update
+
+  - description: Enable devtoolset-8 gcc version
+    commands:
+      - yum -y install devtoolset-8
+      - echo "source /opt/rh/devtoolset-8/enable" >> $BUILD_COMMAND_RC_FILE
